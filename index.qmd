@@ -1,0 +1,134 @@
+---
+title: "Quarterly Synergy Update"
+subtitle: "A deck that is absolutely in full screen"
+author: "Michael's laptop"
+date: "15 October 2026"
+format: 
+  powerpoint-not-fullscreen-revealjs:
+    output-file: "quarterly-update.html"
+  revealjs: default
+---
+
+## Before we begin {data-short-title="Before we begin"}
+
+> **Yes, we can see your screen.**
+
+We can also see:
+
+::: {.columns}
+::: {.column width="33%"}
+::: {.callout-important}
+## 1
+
+Your 47 browser tabs
+:::
+:::
+::: {.column width="33%"}
+::: {.callout-important}
+## 2
+
+The Teams notification
+:::
+:::
+::: {.column width="33%"}
+::: {.callout-important}
+## 3
+
+This editing view
+:::
+:::
+:::
+
+## The strategic overview {data-short-title="Strategic overview" .smaller}
+
+```{r}
+#| label: fig-strategy
+#| echo: true
+#| output-location: column
+#| fig-width: 7
+#| fig-height: 4
+#| fig-align: center
+#| fig-alt: "Three coloured strategy boxes connected by right-pointing arrows."
+
+library(ggplot2)
+
+strategy <- data.frame(
+  x = c(1, 2.5, 4),
+  y = 1,
+  label = c(
+    "People\nAsk them to\ndo more",
+    "Process\nAdd a weekly\nmeeting",
+    "Outcomes\nA colourful\ndashboard"
+  ),
+  stage = c("People", "Process", "Outcomes")
+)
+
+ggplot(strategy, aes(x, y)) +
+  annotate(
+    "segment", x = 1.55, xend = 1.95, y = 1, yend = 1,
+    arrow = grid::arrow(length = grid::unit(0.15, "inches")),
+    colour = "grey55", linewidth = 1
+  ) +
+  annotate(
+    "segment", x = 3.05, xend = 3.45, y = 1, yend = 1,
+    arrow = grid::arrow(length = grid::unit(0.15, "inches")),
+    colour = "grey55", linewidth = 1
+  ) +
+  geom_label(
+    aes(label = label, fill = stage), colour = "white", size = 4,
+    label.padding = grid::unit(0.5, "lines"), linewidth = 0
+  ) +
+  scale_fill_manual(values = c("#9f2830", "#d26a50", "#595878")) +
+  coord_cartesian(xlim = c(0.4, 4.6), ylim = c(0.6, 1.4), clip = "off") +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+## Growth remains strong {data-short-title="Growth remains strong" .smaller}
+
+```{r}
+#| label: fig-growth
+#| echo: true
+#| output-location: column
+#| fig-width: 7
+#| fig-height: 4
+#| fig-align: center
+#| fig-alt: "A red line chart showing strong growth over seven quarters."
+
+growth <- data.frame(
+  quarter = factor(
+    c("Q1 25", "Q2 25", "Q3 25", "Q4 25", "Q1 26", "Q2 26", "Q3 26"),
+    levels = c("Q1 25", "Q2 25", "Q3 25", "Q4 25", "Q1 26", "Q2 26", "Q3 26")
+  ),
+  value = c(8, 16, 13, 35, 30, 63, 92)
+)
+
+ggplot(growth, aes(quarter, value, group = 1)) +
+  geom_line(colour = "#b31f2b", linewidth = 1.5) +
+  geom_point(colour = "#b31f2b", size = 3) +
+  scale_y_continuous(
+    limits = c(0, 100), breaks = c(0, 50, 100),
+    labels = function(x) paste0(x, "%")
+  ) +
+  labs(x = NULL, y = NULL, caption = "*Axis adjusted until morale improved.") +
+  theme_minimal(base_size = 14) +
+  theme(panel.grid.minor = element_blank())
+```
+
+::: {.callout-important}
+## ↑ 312%
+
+Selected metric*
+:::
+
+## Key learnings {data-short-title="Key learnings"}
+
+1. Mute Slack before sharing your entire desktop.
+2. “Slide Show” is a button, not an aspiration.
+3. Presenter View has two screens for a reason.
+
+## Any questions? {data-short-title="Questions"}
+
+# Questions?
+
+Or should I spend five minutes trying to find the **Stop Share** button?
