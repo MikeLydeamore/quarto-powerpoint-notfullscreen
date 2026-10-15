@@ -7,6 +7,8 @@ format:
   powerpoint-not-fullscreen-revealjs:
     output-file: "quarterly-update.html"
   revealjs: default
+execute:
+  echo: false
 ---
 
 ## Before we begin {data-short-title="Before we begin"}
@@ -43,7 +45,6 @@ This editing view
 
 ```{r}
 #| label: fig-strategy
-#| echo: true
 #| output-location: column
 #| fig-width: 7
 #| fig-height: 4
